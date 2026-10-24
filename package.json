@@ -1,0 +1,12 @@
+{
+  "name": "weather-report",
+  "version": "3.0.0",
+  "description": "Chrome extension: weather for any place with a plain-language report for tomorrow.",
+  "private": true,
+  "type": "module",
+  "author": "Rajat Subhara Mondal",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  }
+}

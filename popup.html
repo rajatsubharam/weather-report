@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Report</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-logo" id="brandLogo"></span>
+        <h1>Weather Report</h1>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="icon-btn" id="refreshBtn" title="Refresh" aria-label="Refresh weather"></button>
+        <button type="button" class="icon-btn" id="settingsBtn" title="Settings" aria-label="Open settings"
+                aria-expanded="false" aria-controls="settings"></button>
+      </div>
+    </header>
+
+    <!-- Search -->
+    <form class="search" id="searchForm" role="search" autocomplete="off">
+      <span class="search-icon" id="searchIcon"></span>
+      <input id="searchInput" type="text" placeholder="Search any city or place"
+             aria-label="Search for a city or place" role="combobox"
+             aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions"
+             maxlength="80" spellcheck="false">
+      <button type="button" class="icon-btn locate-btn" id="locateBtn" title="Use my location"
+              aria-label="Use my location" hidden></button>
+      <ul class="suggestions" id="suggestions" role="listbox" hidden></ul>
+    </form>
+
+    <!-- Offline / stale data notice -->
+    <p class="banner" id="banner" role="status" hidden></p>
+
+    <main id="main">
+      <!-- First run -->
+      <section class="state" id="emptyState" hidden>
+        <div class="state-art" id="emptyArt"></div>
+        <h2>Weather for any place</h2>
+        <p>Search for a city above to see the current weather, hourly and 7-day forecast, and tomorrow's report.</p>
+        <button type="button" class="primary-btn" id="emptyLocateBtn" hidden>Use my location</button>
+      </section>
+
+      <!-- Loading (only when nothing is cached) -->
+      <section class="state" id="loadingState" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="loadingText">Loading weather…</p>
+      </section>
+
+      <!-- Error with nothing cached -->
+      <section class="state" id="errorState" hidden>
+        <div class="state-icon" id="errorIcon"></div>
+        <h2 id="errorTitle">Couldn't load the weather</h2>
+        <p id="errorText"></p>
+        <button type="button" class="primary-btn" id="retryBtn">Try again</button>
+      </section>
+
+      <!-- Weather -->
+      <section id="weatherView" hidden>
+        <div class="current" id="current"></div>
+
+        <div class="tabs" role="tablist" aria-label="Forecast views">
+          <button type="button" role="tab" class="tab" id="tab-today" aria-controls="panel-today" aria-selected="true">Today</button>
+          <button type="button" role="tab" class="tab" id="tab-week" aria-controls="panel-week" aria-selected="false" tabindex="-1">7 days</button>
+          <button type="button" role="tab" class="tab" id="tab-report" aria-controls="panel-report" aria-selected="false" tabindex="-1">Tomorrow</button>
+        </div>
+
+        <div class="panel" id="panel-today" role="tabpanel" aria-labelledby="tab-today"></div>
+        <div class="panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week" hidden></div>
+        <div class="panel" id="panel-report" role="tabpanel" aria-labelledby="tab-report" hidden></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo.com</a> · Air quality: CAMS</span>
+      <span id="updated"></span>
+    </footer>
+
+    <!-- Settings sheet -->
+    <section class="settings" id="settings" aria-label="Settings" hidden>
+      <div class="settings-head">
+        <h2>Settings</h2>
+        <button type="button" class="icon-btn" id="closeSettingsBtn" aria-label="Close settings"></button>
+      </div>
+
+      <div class="setting">
+        <span class="setting-label" id="lbl-temp">Temperature</span>
+        <div class="segmented" role="radiogroup" aria-labelledby="lbl-temp" data-setting="tempUnit">
+          <button type="button" role="radio" data-value="C">°C</button>
+          <button type="button" role="radio" data-value="F">°F</button>
+        </div>
+      </div>
+
+      <div class="setting">
+        <span class="setting-label" id="lbl-wind">Wind speed</span>
+        <div class="segmented" role="radiogroup" aria-labelledby="lbl-wind" data-setting="windUnit">
+          <button type="button" role="radio" data-value="kmh">km/h</button>
+          <button type="button" role="radio" data-value="mph">mph</button>
+          <button type="button" role="radio" data-value="ms">m/s</button>
+        </div>
+      </div>
+
+      <div class="setting">
+        <span class="setting-label" id="lbl-time">Time format</span>
+        <div class="segmented" role="radiogroup" aria-labelledby="lbl-time" data-setting="timeFormat">
+          <button type="button" role="radio" data-value="12">12-hour</button>
+          <button type="button" role="radio" data-value="24">24-hour</button>
+        </div>
+      </div>
+
+      <div class="setting setting-stack">
+        <span class="setting-label">Saved data</span>
+        <p class="setting-note">Your chosen place and the last forecast are stored only in this browser.</p>
+        <button type="button" class="text-btn" id="clearDataBtn">Clear saved place &amp; history</button>
+      </div>
+
+      <p class="about">
+        Weather Report <span id="versionText"></span> · by Rajat Subhara Mondal<br>
+        Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo.com</a>
+        (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>).
+        Air quality from the Copernicus Atmosphere Monitoring Service (CAMS) via Open-Meteo.
+      </p>
+    </section>
+
+  </div>
+
+  <script type="module" src="js/popup.js"></script>
+</body>
+</html>
