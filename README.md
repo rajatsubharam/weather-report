@@ -1,6 +1,6 @@
 # Weather Report
 
-A small Chrome extension that shows the weather for any place in the world:
+A small browser extension for Chrome and Firefox that shows the weather for any place in the world:
 current conditions, air quality, an hourly and 7-day forecast, and a short
 plain-language report for tomorrow.
 
@@ -41,18 +41,60 @@ account to create and no API key to paste in.
   old it is.
 - **Settings:** °C or °F, km/h, mph or m/s, and a 12- or 24-hour clock.
 
-## Install (developer mode)
+## Install
 
-1. Download or clone this repository:
-   ```
-   git clone https://github.com/rajatsubharam/weather-report.git
-   ```
-2. Open `chrome://extensions` in Chrome.
-3. Turn on **Developer mode** (top right).
-4. Click **Load unpacked** and select the `weather-report` folder (the one with
+Download the latest zip from the
+[Releases page](https://github.com/rajatsubharam/weather-report/releases/latest).
+
+### Chrome, Brave or Edge
+
+1. Download `weather-report-chrome-v3.0.1.zip` and unzip it.
+2. Open `chrome://extensions` (in Edge: `edge://extensions`).
+3. Turn on **Developer mode**.
+4. Click **Load unpacked** and select the unzipped folder (the one with
    `manifest.json` in it).
 5. Pin **Weather Report** from the puzzle-piece menu, then click it and search
    for a city.
+
+You can also clone the repository and load the `weather-report` folder the
+same way:
+
+```
+git clone https://github.com/rajatsubharam/weather-report.git
+```
+
+### Firefox
+
+- **From Firefox Add-ons:** coming soon.
+- **Try it now:** download `weather-report-firefox-v3.0.1.zip`, open
+  `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on...**
+  and pick the zip (or `manifest.json` inside the unzipped folder). A temporary
+  add-on stays until Firefox is closed.
+
+Firefox 140 or newer is needed.
+
+## Publishing to Firefox Add-ons
+
+Publishing on [addons.mozilla.org](https://addons.mozilla.org/) is free.
+
+1. Go to the [Add-on Developer Hub](https://addons.mozilla.org/developers/)
+   and sign in with a free Firefox account.
+2. Click **Submit a New Add-on** and choose **On this site**.
+3. Upload `weather-report-firefox-v3.0.1.zip` and wait for the automatic
+   validation.
+4. When asked whether the add-on uses minified, concatenated or
+   machine-generated code, answer **No**. The code is plain JavaScript with no
+   build step, so no separate source upload is needed.
+5. Fill in the listing (name, summary, description, category, screenshots)
+   from [`store/store-listing.md`](store/store-listing.md) and the images in
+   `store/`.
+6. Add the privacy policy:
+   [`store/privacy-policy.md`](store/privacy-policy.md) on GitHub.
+7. Submit. You'll get an email once the review is done.
+
+The Firefox add-on ID is set in `manifest.json` under
+`browser_specific_settings`. Chrome ignores that key. To check the package
+before uploading, run `npx web-ext lint`.
 
 ## Publishing to the Chrome Web Store
 

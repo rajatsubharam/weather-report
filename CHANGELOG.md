@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1 (2026-10-24)
+
+- Firefox support: added the add-on ID and data-collection settings in
+  `browser_specific_settings` (Firefox 140+). The same package still loads in
+  Chrome, Brave and Edge.
+- Ready-made zips for Chrome and Firefox on the Releases page.
+- README: install steps for each browser and how to publish on Firefox Add-ons.
+
 ## 3.0.0 (2026-10-24)
 
 Rebuilt as **Weather Report**.

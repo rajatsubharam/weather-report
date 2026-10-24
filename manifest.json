@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Weather Report",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Weather for any place: current conditions, air quality, hourly and 7-day forecast, plus a plain-language report for tomorrow.",
   "author": "Rajat Subhara Mondal",
   "permissions": [
@@ -26,5 +26,19 @@
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "weather-report@rajatsubharam",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "locationInfo"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 _Last updated: 24 October 2026_
 
-Weather Report is a Chrome extension made by Rajat Subhara Mondal. This page
+Weather Report is a browser extension (Chrome and Firefox) made by Rajat Subhara Mondal. This page
 explains what happens to your information when you use it.
 
 ## The short version
@@ -12,14 +12,14 @@ accounts, no analytics and no ads, and the developer runs no server.
 
 ## What is stored on your device
 
-The extension uses Chrome's built-in extension storage to remember:
+The extension uses the browser's built-in extension storage to remember:
 
 - the place you picked and a short list of recent places
 - your settings (°C/°F, wind unit, 12/24-hour clock)
 - the last forecast, so the popup opens instantly and works offline
 
-This stays in your browser. Your settings may sync between your own Chrome
-browsers if you have Chrome Sync turned on. You can delete everything under
+This stays in your browser. Your settings may sync between your own browsers
+if you have Chrome Sync or Firefox Sync turned on. You can delete everything under
 **Settings → Clear saved place & history**, or by removing the extension.
 
 ## What is sent to the weather service
