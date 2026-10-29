@@ -43,6 +43,15 @@ account to create and no API key to paste in.
 
 ## Install
 
+### Firefox: install from Firefox Add-ons
+
+[![Get the add-on for Firefox](https://img.shields.io/badge/Firefox-Get%20the%20add--on-FF7139?logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/weather-report-rajat/)
+
+Weather Report is published on [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/weather-report-rajat/). Open the page in
+Firefox and click **Add to Firefox**. Firefox 140 or newer is needed.
+
+### Manual install
+
 Download the latest zip from the
 [Releases page](https://github.com/rajatsubharam/weather-report/releases/latest).
 
@@ -65,7 +74,7 @@ git clone https://github.com/rajatsubharam/weather-report.git
 
 ### Firefox
 
-- **From Firefox Add-ons:** coming soon.
+- **From Firefox Add-ons:** [install it here](https://addons.mozilla.org/en-US/firefox/addon/weather-report-rajat/) (see above).
 - **Try it now:** download `weather-report-firefox-v3.0.1.zip`, open
   `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on...**
   and pick the zip (or `manifest.json` inside the unzipped folder). A temporary
